@@ -1,0 +1,15 @@
+string ifstart
+---
+float32 plane_a
+float32 plane_b
+float32 plane_c
+float32 plane_d
+string[] Class
+float32[] center_x
+float32[] center_y
+float32[] center_z
+float32[] radius
+float32[] height
+float32[] front_x
+float32[] front_y
+float32[] front_z

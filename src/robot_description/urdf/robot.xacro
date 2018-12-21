@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot name="zeal_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<xacro:include filename="$(find robot_description)/urdf/robot.urdf.xacro" />
+
+	<xacro:motoman prefix=""/>
+
+	<!--ros_control-->
+	<gazebo>
+		 <plugin name= "gazebo_ros_controll" filename= "libgazebo_ros_control.so">
+				 <robotNamespace>/robot_csda10f</robotNamespace>
+					<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+		 </plugin>
+	</gazebo>
+
+</robot>

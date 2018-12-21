@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--Develped by Daniel Ordonez 22.05.2018 - daniels.ordonez@gmail.com   
+	INFORMATION:
+		This is an example of how to use the realsense-rs200 macro function.
+-->
+<robot name="test_with_realsense_rs200" xmlns:xacro="http://ros.org/wiki/xacro">
+ 
+  <xacro:include filename="$(find robot_eyes)/urdf/realsense-RS200.macro.xacro" />
+  
+  <!-- Create camera instance -->
+  <xacro:realsense-rs200 />
+
+  <link name="world"/>
+
+  <!-- Place camera referenced to world frame  -->
+  <joint name="realsense_joint" type="fixed">
+    <parent link="world" />
+    <child link="rs200_camera" />
+    <origin xyz="0 0 1.5" rpy="0 0.5 0"/>
+  </joint>
+
+</robot>

@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+	<xacro:macro name="realsense_camera">
+		
+	<link name="realsense_rs200">catkin_male
+		<visual>
+			<base_link rpy="0 0 0" xyz="0 0 0"/>
+		<geometry>
+			<mesh filename="package://realsense_gazebo_plugin/models/realsense_camera/meshes/realsense.dae"/>
+		</geometry>
+		</visual>
+		<collision>
+			<base_link rpy="0 0 0" xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://realsense_gazebo_plugin/models/realsense_camera/meshes/realsense.dae"/>
+		</collision>
+		<inertial>
+			<mass>0.0615752</mass>
+			<inertia>
+				<ixx>9.108e-05</ixx>
+				<ixy>0</ixy>
+				<ixz>0</ixz>
+				<iyy>2.51e-06</iyy>
+				<iyz>0</iyz>
+				<izz>8.931e-05</izz>
+			</inertia>
+      	</inertial>
+	</link>
+
+	</xacro:macro>
+</robot>

@@ -1,0 +1,8 @@
+<launch>
+
+  <include file="$(find robot_moveit_config)/launch/demo.launch"/>
+
+  <node name="invite_move_group_python_interface" pkg="robot_planning" type="invite_move_group_python_interface.py" respawn="false" output="screen">
+  </node>
+
+</launch>

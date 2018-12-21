@@ -1,0 +1,5 @@
+<launch>
+
+    <rosparam command="load" file="$(find robot_moveit_config)/config/sensors_kinect_pointcloud.yaml" />
+
+</launch>

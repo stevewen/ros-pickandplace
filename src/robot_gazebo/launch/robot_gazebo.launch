@@ -1,0 +1,51 @@
+<launch>
+	<arg name="paused" default="false"/>
+  <arg name="scene" default="false"/>
+
+  <!-- remap topics to joint_trajectory_action controller -->
+   <!-- <remap from="/csda10f/csda10f_r1_controller/follow_joint_trajectory" to="/csda10f/csda10f_r1_controller/joint_trajectory_action" />
+   <remap from="/csda10f/csda10f_r2_controller/follow_joint_trajectory" to="/csda10f/csda10f_r2_controller/joint_trajectory_action" />
+   <remap from="/csda10f/csda10f_b1_controller/follow_joint_trajectory" to="/csda10f/csda10f_b1_controller/joint_trajectory_action" />
+   <remap from="/csda10f/csda10f_b2_controller/follow_joint_trajectory" to="/csda10f/csda10f_b2_controller/joint_trajectory_action" /> -->
+
+   <!-- remap topic joint_state from gazebo to Rviz -->
+   <!-- <remap from="/csda10f/joint_states" to="/joint_states" /> -->
+
+
+   <!--Start simulated robot with the scene invite LAB-->
+   <group if="$(arg scene)">
+        <include file="$(find gazebo_ros)/launch/empty_world.launch">
+          <arg name="world_name" value="$(find robot_gazebo)/worlds/robot.world"/>
+          <arg name="gui" value="true"/>
+          <arg name="paused" value="$(arg paused)"/>
+        </include>
+   </group>
+
+   <!--Start simulated robot without scene-->
+   <group unless="$(arg scene)">
+        <include file="$(find gazebo_ros)/launch/empty_world.launch">
+          <arg name="world_name" value="worlds/empty.world"/>
+          <arg name="gui" value="true"/>
+          <arg name="paused" value="$(arg paused)"/>
+        </include>
+   </group>
+
+  <!-- urdf xml robot description loaded on the Parameter Server, converting the xacro into a proper urdf file-->
+  <include file="$(find robot_gazebo)/launch/load_robot.launch" />
+
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="robot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model zealrobot" />
+
+	<!-- init and start Gazebo ros_control interface -->
+	<include file="$(find robot_gazebo)/launch/robot_control.launch"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
+
+	<!-- 运行joint_state_publisher节点，发布机器人的关节状态  -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+	<!-- 运行rviz可视化界面 -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_description)/config/urdf.rviz" required="true" />
+
+</launch>

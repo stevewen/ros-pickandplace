@@ -1,0 +1,67 @@
+robot_csda10f:
+# Publish all joint states -----------------------------------
+  # joint_state_controller:
+  #   type: joint_state_controller/JointStateController
+  #   publish_rate: 50
+
+  # Position Controllers ---------------------------------------
+  left_base_hand_big_thumb_1_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: left_base_hand_big_thumb_1
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_base_hand_big_thumb_2_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: left_base_hand_big_thumb_2
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_base_hand_big_thumb_3_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: left_base_hand_big_thumb_3
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_hand_finger_1_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: left_hand_finger_1_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_hand_finger_shizhimid_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: left_hand_finger_shizhimid_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_hand_finger_shizhitop_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: left_hand_finger_shizhitop_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_hand_finger_2_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: left_hand_finger_2_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_hand_finger_zhongzhimid_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: left_hand_finger_zhongzhimid_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_hand_finger_zhongzhitop_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: left_hand_finger_zhongzhitop_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_hand_finger_3_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: left_hand_finger_3_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_hand_finger_wumingzhimid_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: left_hand_finger_wumingzhimid_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_hand_finger_wumingzhitop_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: left_hand_finger_wumingzhitop_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_hand_finger_4_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: left_hand_finger_4_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_hand_finger_xiaozhimid_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: left_hand_finger_xiaozhimid_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_hand_finger_xiaozhitop_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: left_hand_finger_xiaozhitop_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}

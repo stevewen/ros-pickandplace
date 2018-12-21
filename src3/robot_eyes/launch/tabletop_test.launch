@@ -1,0 +1,116 @@
+<launch>
+  <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${node}]: ${message}"/>
+    
+  <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen" />
+
+  <!-- Run a VoxelGrid filter to clean NaNs and downsample the data -->
+  <node pkg="nodelet" type="nodelet" name="voxel_grid" args="load pcl/VoxelGrid pcl_manager" output="screen">
+    <remap from="~input" to="/realsense/camera/depth_registered/points" />
+    <rosparam>
+      leaf_size: 0.01               # The size of a leaf (on x,y,z) used for downsampling. Range: 0.0 to 1.0
+      filter_field_name: z          # The field name used for filtering; z axis points out from the camera, meaning is the depth dimension.
+      filter_limit_min: 0.35        # The minimum allowed field value a point will be considered from Range: -1000.0 to 1000.0 
+      filter_limit_max: 3.0         # The maximum allowed field value a point will be considered from Range: -1000.0 to 1000.0 
+      filter_limit_negative: False  # Set to true if we want to return the data outside [filter_limit_min; filter_limit_max]
+      max_queue_size: 1             # Incomming messages queue.
+    </rosparam>
+  </node>
+
+  <!-- Remove Noise Data -->
+  <node pkg="nodelet" type="nodelet" name="stadistical_outliner_removal" args="load pcl/StatisticalOutlierRemoval  pcl_manager" output="screen">
+    <remap from="~input" to="/voxel_grid/output" />
+    <rosparam>
+      mean_k: 20                    # The number of points (k) to use for mean distance estimation Range: 2 to 100 
+      stddev: 1.8                   # The standard deviation multiplier threshold. All points outside the mean +- sigma * std_mul will be considered outliers. Range: 0.0 to 5.0 
+      max_queue_size: 1             # Incomming messages queue.
+    </rosparam>
+  </node>
+
+  <!-- Estimate point normals -->
+  <node pkg="nodelet" type="nodelet" name="normal_estimation" args="load pcl/NormalEstimation pcl_manager" output="screen">
+    <remap from="~input" to="/stadistical_outliner_removal/output" />
+    <rosparam>
+      # -[ Mandatory parameters
+      k_search: 0
+      radius_search: 0.015
+      # Set the spatial locator. Possible values are: 0 (ANN), 1 (FLANN), 2 (organized)
+      spatial_locator: 0
+    </rosparam>
+  </node>
+
+  <!-- Segment the table plane -->
+  <node pkg="nodelet" type="nodelet" name="planar_segmentation1" args="load pcl/SACSegmentationFromNormals pcl_manager" output="screen">
+    <remap from="~input"   to="/stadistical_outliner_removal/output" />
+    <remap from="~normals" to="/normal_estimation/output" />
+    <rosparam>
+      model_type: 11
+      distance_threshold: 0.01
+      max_iterations: 1000
+      method_type: 0
+      optimize_coefficients: true
+      normal_distance_weight: 0.1
+      eps_angle: 0.09
+    </rosparam>
+  </node>
+
+  <node pkg="nodelet" type="nodelet" name="extract_plane_indices" args="load pcl/ExtractIndices pcl_manager" output="screen">
+    <remap from="~input"   to="/stadistical_outliner_removal/output" />
+    <remap from="~indices" to="/planar_segmentation1/inliers" />
+    <rosparam>
+      negative: true
+    </rosparam>
+  </node>
+
+    <!-- Segment the table plane -->
+  <node pkg="nodelet" type="nodelet" name="planar_segmentation2" args="load pcl/SACSegmentation pcl_manager" output="screen">
+    <remap from="~input"   to="/extract_plane_indices/output" />
+    <rosparam>
+      model_type: 0
+      distance_threshold: 0.02
+      max_iterations: 500
+      method_type: 0
+      optimize_coefficients: true
+    </rosparam>
+  </node>
+
+  <node pkg="nodelet" type="nodelet" name="extract_plane_indices2" args="load pcl/ExtractIndices pcl_manager" output="screen">
+    <remap from="~input"   to="/extract_plane_indices/output" />
+    <remap from="~indices" to="/planar_segmentation2/inliers" />
+    <rosparam>
+      negative: true
+    </rosparam>
+  </node>
+
+  <!-- Cluster tabletop objects. -->
+  <node pkg="nodelet" type="nodelet" name="cluster_extractor" args="load pcl/EuclideanClusterExtraction pcl_manager" output="screen">
+    <remap from="~input"   to="/extract_plane_indices/output" />
+    <remap from="~indices" to="/extract_plane_indices2/indices" />
+    <rosparam>
+      cluster_tolerance: 2                      # 
+      publish_indices: false
+      spatial_locator: 0
+      max_queue_size: 5
+      cluster_min_size: 200
+      cluster_max_size: 3000
+      max_clusters: 5
+      use_indices: true
+    </rosparam>
+  </node>
+
+  <!-- Project the planar inliers -->
+  <node pkg="nodelet" type="nodelet" name="project_plane_inliers" args="load pcl/ProjectInliers pcl_manager" output="screen">
+   <remap from="~input"   to="/extract_plane_indices/output" />
+   <remap from="~indices" to="/planar_segmentation2/inliers" />
+   <remap from="~model"   to="/planar_segmentation2/model" />
+   <rosparam>
+     model_type: 11
+     copy_all_data: false
+     copy_all_fields: true
+   </rosparam>
+  </node>
+
+  <!--  Compute the convex hull -->
+  <node pkg="nodelet" type="nodelet" name="convex_hull" args="load pcl/ConvexHull2D pcl_manager" output="screen">
+    <remap from="~input"   to="/project_plane_inliers/output" />
+  </node>
+</launch>

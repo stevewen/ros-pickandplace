@@ -1,0 +1,1455 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 78
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /MotionPlanning1/Scene Geometry1
+        - /MotionPlanning1/Scene Robot1
+        - /MotionPlanning1/Planning Request1
+        - /MotionPlanning1/Planning Metrics1
+        - /MotionPlanning1/Planned Path1
+        - /TF1
+        - /TF1/Frames1
+        - /Image1
+      Splitter Ratio: 0.643145144
+    Tree Height: 359
+  - Class: rviz/Help
+    Name: Help
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz_visual_tools/RvizVisualToolsGui
+    Name: RvizVisualToolsGui
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: false
+      Line Style:
+        Line Width: 0.0299999993
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: false
+    - Acceleration_Scaling_Factor: 1
+      Class: moveit_rviz_plugin/MotionPlanning
+      Enabled: true
+      Move Group Namespace: ""
+      MoveIt_Allow_Approximate_IK: false
+      MoveIt_Allow_External_Program: false
+      MoveIt_Allow_Replanning: false
+      MoveIt_Allow_Sensor_Positioning: false
+      MoveIt_Goal_Tolerance: 0
+      MoveIt_Planning_Attempts: 10
+      MoveIt_Planning_Time: 5
+      MoveIt_Use_Constraint_Aware_IK: true
+      MoveIt_Warehouse_Host: 127.0.0.1
+      MoveIt_Warehouse_Port: 33829
+      MoveIt_Workspace:
+        Center:
+          X: 0
+          Y: 0
+          Z: 0
+        Size:
+          X: 2
+          Y: 2
+          Z: 2
+      Name: MotionPlanning
+      Planned Path:
+        Color Enabled: false
+        Interrupt Display: false
+        Links:
+          All Links Enabled: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          Link Tree Style: Links in Alphabetic Order
+          arm_left_base:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_left_coupler:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_left_driver:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_left_follower:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_left_pad:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_left_spring_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_1_s:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_2_l:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_3_e:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_4_u:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_5_r:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_6_b:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_7_t:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_force_sensor:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_force_sensor_adapter_plate:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_gripper_adapter_plate:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_robotiq_coupling:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_tcp:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          arm_left_link_tool0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          arm_left_right_coupler:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_right_driver:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_right_follower:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_right_pad:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_right_spring_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_right_link_1_s:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_right_link_2_l:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_right_link_3_e:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_right_link_4_u:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_right_link_5_r:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_right_link_6_b:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_right_link_7_t:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_right_link_tcp:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          arm_right_link_tool0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base_link_mass:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          camera_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_link0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          camera_link_re:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          camera_reference_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_wheel_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_wheel_link0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          map:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_big_thumb_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_big_thumb_2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_big_thumb_3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_shizhidown_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_shizhimid_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_shizhitop_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_wumingzhidown_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_wumingzhimid_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_wumingzhitop_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_xiaozhidown_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_xiaozhimid_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_xiaozhitop_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_zhongzhidown_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_zhongzhimid_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_zhongzhitop_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_zhuanjie_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_zhuanjie_2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_wheel_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_wheel_link0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          torso_base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          torso_link_b1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          torso_link_b2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+        Loop Animation: false
+        Robot Alpha: 0.5
+        Robot Color: 150; 50; 150
+        Show Robot Collision: false
+        Show Robot Visual: false
+        Show Trail: false
+        State Display Time: 0.05 s
+        Trail Step Size: 1
+        Trajectory Topic: move_group/display_planned_path
+      Planning Metrics:
+        Payload: 1
+        Show Joint Torques: false
+        Show Manipulability: false
+        Show Manipulability Index: false
+        Show Weight Limit: false
+        TextHeight: 0.0799999982
+      Planning Request:
+        Colliding Link Color: 255; 0; 0
+        Goal State Alpha: 1
+        Goal State Color: 250; 128; 0
+        Interactive Marker Size: 0
+        Joint Violation Color: 255; 0; 255
+        Planning Group: csda10f
+        Query Goal State: false
+        Query Start State: false
+        Show Workspace: false
+        Start State Alpha: 1
+        Start State Color: 0; 255; 0
+      Planning Scene Topic: move_group/monitored_planning_scene
+      Robot Description: robot_description
+      Scene Geometry:
+        Scene Alpha: 1
+        Scene Color: 255; 255; 246
+        Scene Display Time: 0.200000003
+        Show Scene Geometry: true
+        Voxel Coloring: Z-Axis
+        Voxel Rendering: Occupied Voxels
+      Scene Robot:
+        Attached Body Color: 150; 50; 150
+        Links:
+          All Links Enabled: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          Link Tree Style: Links in Alphabetic Order
+          arm_left_base:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_left_coupler:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_left_driver:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_left_follower:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_left_pad:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_left_spring_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_1_s:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_2_l:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_3_e:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_4_u:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_5_r:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_6_b:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_7_t:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_force_sensor:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_force_sensor_adapter_plate:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_gripper_adapter_plate:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_robotiq_coupling:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_link_tcp:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          arm_left_link_tool0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          arm_left_right_coupler:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_right_driver:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_right_follower:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_right_pad:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_left_right_spring_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_right_link_1_s:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_right_link_2_l:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_right_link_3_e:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_right_link_4_u:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_right_link_5_r:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_right_link_6_b:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_right_link_7_t:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          arm_right_link_tcp:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          arm_right_link_tool0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base_link_mass:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          camera_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_link0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          camera_link_re:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          camera_reference_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_wheel_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_wheel_link0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          map:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_big_thumb_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_big_thumb_2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_big_thumb_3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_shizhidown_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_shizhimid_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_shizhitop_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_wumingzhidown_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_wumingzhimid_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_wumingzhitop_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_xiaozhidown_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_xiaozhimid_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_xiaozhitop_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_zhongzhidown_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_zhongzhimid_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_finger_zhongzhitop_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_zhuanjie_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_hand_zhuanjie_2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_wheel_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_wheel_link0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          torso_base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          torso_link_b1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          torso_link_b2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+        Robot Alpha: 1
+        Show Robot Collision: false
+        Show Robot Visual: true
+      Value: true
+      Velocity_Scaling_Factor: 1
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /rviz_visual_tools
+      Name: MarkerArray
+      Namespaces:
+        Cylinder: true
+        Sphere: true
+        Text: true
+      Queue Size: 100
+      Value: true
+    - Class: moveit_rviz_plugin/Trajectory
+      Color Enabled: false
+      Enabled: true
+      Interrupt Display: false
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        arm_left_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_left_coupler:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_left_driver:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_left_follower:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_left_pad:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_left_spring_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_link_1_s:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_link_2_l:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_link_3_e:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_link_4_u:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_link_5_r:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_link_6_b:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_link_7_t:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_link_force_sensor:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_link_force_sensor_adapter_plate:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_link_gripper_adapter_plate:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_link_robotiq_coupling:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_link_tcp:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        arm_left_link_tool0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        arm_left_right_coupler:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_right_driver:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_right_follower:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_right_pad:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_right_spring_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_right_link_1_s:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_right_link_2_l:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_right_link_3_e:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_right_link_4_u:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_right_link_5_r:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_right_link_6_b:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_right_link_7_t:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_right_link_tcp:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        arm_right_link_tool0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base_link_mass:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_link0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        camera_link_re:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        camera_reference_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_wheel_link0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        map:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_big_thumb_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_big_thumb_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_big_thumb_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_finger_shizhidown_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_finger_shizhimid_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_finger_shizhitop_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_finger_wumingzhidown_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_finger_wumingzhimid_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_finger_wumingzhitop_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_finger_xiaozhidown_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_finger_xiaozhimid_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_finger_xiaozhitop_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_finger_zhongzhidown_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_finger_zhongzhimid_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_finger_zhongzhitop_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_zhuanjie_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_zhuanjie_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_wheel_link0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        torso_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        torso_link_b1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        torso_link_b2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Loop Animation: false
+      Name: Trajectory
+      Robot Alpha: 0.5
+      Robot Color: 150; 50; 150
+      Robot Description: robot_description
+      Show Robot Collision: false
+      Show Robot Visual: false
+      Show Trail: false
+      State Display Time: 0.05 s
+      Trail Step Size: 1
+      Trajectory Topic: /move_group/display_planned_path
+      Value: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        arm_left_base:
+          Value: false
+        arm_left_left_coupler:
+          Value: false
+        arm_left_left_driver:
+          Value: false
+        arm_left_left_follower:
+          Value: false
+        arm_left_left_pad:
+          Value: false
+        arm_left_left_spring_link:
+          Value: false
+        arm_left_link_1_s:
+          Value: false
+        arm_left_link_2_l:
+          Value: false
+        arm_left_link_3_e:
+          Value: false
+        arm_left_link_4_u:
+          Value: false
+        arm_left_link_5_r:
+          Value: false
+        arm_left_link_6_b:
+          Value: false
+        arm_left_link_7_t:
+          Value: false
+        arm_left_link_force_sensor:
+          Value: false
+        arm_left_link_force_sensor_adapter_plate:
+          Value: false
+        arm_left_link_gripper_adapter_plate:
+          Value: false
+        arm_left_link_robotiq_coupling:
+          Value: false
+        arm_left_link_tcp:
+          Value: false
+        arm_left_link_tool0:
+          Value: false
+        arm_left_right_coupler:
+          Value: false
+        arm_left_right_driver:
+          Value: false
+        arm_left_right_follower:
+          Value: false
+        arm_left_right_pad:
+          Value: false
+        arm_left_right_spring_link:
+          Value: false
+        arm_right_link_1_s:
+          Value: false
+        arm_right_link_2_l:
+          Value: false
+        arm_right_link_3_e:
+          Value: false
+        arm_right_link_4_u:
+          Value: false
+        arm_right_link_5_r:
+          Value: false
+        arm_right_link_6_b:
+          Value: false
+        arm_right_link_7_t:
+          Value: false
+        arm_right_link_tcp:
+          Value: false
+        arm_right_link_tool0:
+          Value: false
+        base_link:
+          Value: false
+        base_link_mass:
+          Value: false
+        camera_link:
+          Value: true
+        camera_link0:
+          Value: false
+        camera_link_re:
+          Value: false
+        camera_reference_link:
+          Value: false
+        left_wheel_link:
+          Value: false
+        left_wheel_link0:
+          Value: false
+        map:
+          Value: false
+        right_base_link:
+          Value: false
+        right_hand_big_thumb_1:
+          Value: false
+        right_hand_big_thumb_2:
+          Value: false
+        right_hand_big_thumb_3:
+          Value: false
+        right_hand_finger_shizhidown_link:
+          Value: false
+        right_hand_finger_shizhimid_link:
+          Value: false
+        right_hand_finger_shizhitop_link:
+          Value: false
+        right_hand_finger_wumingzhidown_link:
+          Value: false
+        right_hand_finger_wumingzhimid_link:
+          Value: false
+        right_hand_finger_wumingzhitop_link:
+          Value: false
+        right_hand_finger_xiaozhidown_link:
+          Value: false
+        right_hand_finger_xiaozhimid_link:
+          Value: false
+        right_hand_finger_xiaozhitop_link:
+          Value: false
+        right_hand_finger_zhongzhidown_link:
+          Value: false
+        right_hand_finger_zhongzhimid_link:
+          Value: false
+        right_hand_finger_zhongzhitop_link:
+          Value: false
+        right_hand_zhuanjie_1:
+          Value: false
+        right_hand_zhuanjie_2:
+          Value: false
+        right_wheel_link:
+          Value: false
+        right_wheel_link0:
+          Value: false
+        torso_base_link:
+          Value: false
+        torso_link_b1:
+          Value: false
+        torso_link_b2:
+          Value: false
+      Marker Scale: 0.300000012
+      Name: TF
+      Show Arrows: false
+      Show Axes: true
+      Show Names: false
+      Tree:
+        camera_link:
+          base_link:
+            base_link_mass:
+              {}
+            left_wheel_link:
+              {}
+            left_wheel_link0:
+              {}
+            map:
+              {}
+            right_wheel_link:
+              {}
+            right_wheel_link0:
+              {}
+            torso_base_link:
+              torso_link_b1:
+                arm_left_link_1_s:
+                  arm_left_link_2_l:
+                    arm_left_link_3_e:
+                      arm_left_link_4_u:
+                        arm_left_link_5_r:
+                          arm_left_link_6_b:
+                            arm_left_link_7_t:
+                              arm_left_link_tool0:
+                                arm_left_link_force_sensor_adapter_plate:
+                                  arm_left_link_force_sensor:
+                                    arm_left_link_gripper_adapter_plate:
+                                      arm_left_link_robotiq_coupling:
+                                        arm_left_base:
+                                          arm_left_left_driver:
+                                            arm_left_left_coupler:
+                                              arm_left_left_follower:
+                                                arm_left_left_pad:
+                                                  {}
+                                          arm_left_left_spring_link:
+                                            {}
+                                          arm_left_right_driver:
+                                            arm_left_right_coupler:
+                                              arm_left_right_follower:
+                                                arm_left_right_pad:
+                                                  {}
+                                          arm_left_right_spring_link:
+                                            {}
+                                arm_left_link_tcp:
+                                  {}
+                arm_right_link_1_s:
+                  arm_right_link_2_l:
+                    arm_right_link_3_e:
+                      arm_right_link_4_u:
+                        arm_right_link_5_r:
+                          arm_right_link_6_b:
+                            arm_right_link_7_t:
+                              arm_right_link_tool0:
+                                arm_right_link_tcp:
+                                  {}
+                                right_base_link:
+                                  right_hand_big_thumb_1:
+                                    right_hand_zhuanjie_1:
+                                      right_hand_zhuanjie_2:
+                                        right_hand_big_thumb_2:
+                                          right_hand_big_thumb_3:
+                                            {}
+                                  right_hand_finger_shizhidown_link:
+                                    right_hand_finger_shizhimid_link:
+                                      right_hand_finger_shizhitop_link:
+                                        {}
+                                  right_hand_finger_wumingzhidown_link:
+                                    right_hand_finger_wumingzhimid_link:
+                                      right_hand_finger_wumingzhitop_link:
+                                        {}
+                                  right_hand_finger_xiaozhidown_link:
+                                    right_hand_finger_xiaozhimid_link:
+                                      right_hand_finger_xiaozhitop_link:
+                                        {}
+                                  right_hand_finger_zhongzhidown_link:
+                                    right_hand_finger_zhongzhimid_link:
+                                      right_hand_finger_zhongzhitop_link:
+                                        {}
+                camera_link0:
+                  camera_link_re:
+                    camera_reference_link:
+                      {}
+              torso_link_b2:
+                {}
+      Update Interval: 0
+      Value: true
+    - Alpha: 0.300000012
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic: /map
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: RGB8
+      Decay Time: 0
+      Enabled: false
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.00999999978
+      Style: Flat Squares
+      Topic: /camera/depth/color/points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Class: rviz/Image
+      Enabled: true
+      Image Topic: /darknet_ros/detection_image
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Image
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 124; 127; 125
+    Default Light: true
+    Fixed Frame: base_link
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz_visual_tools/KeyTool
+  Value: true
+  Views:
+    Current:
+      Class: rviz/XYOrbit
+      Distance: 3.299052
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.0599999987
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 0.656642079
+        Y: 0.447711676
+        Z: -9.76713977e-07
+      Focal Shape Fixed Size: false
+      Focal Shape Size: 0.0500000007
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.00999999978
+      Pitch: 0.484796882
+      Target Frame: base_link
+      Value: XYOrbit (rviz)
+      Yaw: 5.67725277
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: true
+  Height: 1056
+  Help:
+    collapsed: false
+  Hide Left Dock: true
+  Hide Right Dock: false
+  Image:
+    collapsed: false
+  MotionPlanning:
+    collapsed: true
+  MotionPlanning - Trajectory Slider:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd0000000200000000000002b8000003dafc020000000cfb000000100044006900730070006c0061007900730000000028000001b0000000d700fffffffb0000000800480065006c00700000000342000000bb0000007300fffffffb0000000a0056006900650077007300000003b0000000b0000000ad00fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb0000002e004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb0000003c005400720061006a006500630074006f007200790020002d0020005400720061006a006500630074006f0072007900200053006c006900640065007200000001bb0000004c0000004a00fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e006700000001de000002240000018300fffffffb000000120020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb00000026005400720061006a006500630074006f007200790020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000004a00fffffffb0000000a0049006d006100670065030000056100000216000001e90000018c000000030000075300000043fc0100000001fb00000024005200760069007a00560069007300750061006c0054006f006f006c0073004700750069030000056600000107000001dd0000004500000755000003da00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  RvizVisualToolsGui:
+    collapsed: false
+  Trajectory - Trajectory Slider:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 1877
+  X: 43
+  Y: 24

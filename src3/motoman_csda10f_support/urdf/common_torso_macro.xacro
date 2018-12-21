@@ -1,0 +1,625 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<xacro:macro name="cylinder_inertial_matrix" params="m r h">
+			<inertial>
+					<mass value="${m}" />
+					<inertia ixx="${m*(3*r*r+h*h)/12}" ixy = "0" ixz = "0"
+						       iyy="${m*(3*r*r+h*h)/12}" iyz = "0"
+							     izz="${m*r*r/2}" />
+			</inertial>
+	</xacro:macro>
+
+	<xacro:macro name="box_inertial_matrix" params="m w h d">
+			<inertial>
+					<mass value="${m}" />
+					<inertia ixx="${m*(h*h+d*d)/12}" ixy = "0" ixz = "0"
+							iyy="${m*(w*w+d*d)/12}" iyz = "0"
+							izz="${m*(w*w+h*h)/12}" />
+			</inertial>
+	</xacro:macro>
+
+	<xacro:property name="M_PI" value="3.1415926535898" />
+	<xacro:property name="wheel_radius" value="0.1"/>
+	<xacro:property name="wheel_joint_x" value="0.2"/>
+	<xacro:property name="wheel_joint_y" value="0.33"/>
+
+<xacro:macro name="torso" params="name prefix">
+
+<!-- move base -->
+<link name="base_link">
+	<visual>
+		<origin xyz=" 0 0 0" rpy="0 0 0"/>
+		<geometry>
+			<box size="0.55 0.58 0.03"/>
+			<!-- <cylinder length="0.02" radius="0.5"/> -->
+		</geometry>
+		<material name="white">
+			<color rgba="1 1 1 0.9"/>
+		</material>
+	</visual>
+	<collision>
+		<origin xyz=" 0 0 0" rpy="0 0 0"/>
+		<geometry>
+			<box size="0.55 0.58 0.03"/>
+			<!-- <cylinder length="0.02" radius="0.5"/> -->
+		</geometry>
+		<material name="white">
+			<color rgba="1 1 1 0.9"/>
+		</material>
+	</collision>
+	<!-- <inertial>
+      <mass value="0.1" />
+      <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+  </inertial> -->
+</link>
+<gazebo reference="base_link">
+	 <material>Gazebo/White</material>
+	 <gravity>true</gravity>
+</gazebo>
+
+<link name="base_link_mass">
+	<visual>
+		<origin xyz=" 0 0 0" rpy="0 0 0"/>
+		<geometry>
+			<box size="0.55 0.58 0.03"/>
+			<!-- <cylinder length="0.02" radius="0.5"/> -->
+		</geometry>
+		<material name="DarkGrey">
+	       <color rgba="0.3 0.3 0.3 1.0"/>
+	    </material>
+	</visual>
+	<collision>
+		<origin xyz=" 0 0 0" rpy="0 0 0"/>
+		<geometry>
+			<box size="0.55 0.58 0.03"/>
+			<!-- <cylinder length="0.02" radius="0.5"/> -->
+		</geometry>
+		<material name="DarkGrey">
+	    <color rgba="0.3 0.3 0.3 1.0"/>
+	  </material>
+	</collision>
+	 <!-- <xacro:box_inertial_matrix  m="500.0" w="0.55" h="0.58" d="0.03"/> -->
+	 <inertial>
+            <mass value="500.0" />
+            <inertia ixx="14.0541666667" ixy="0" ixz="0" iyy="12.6416666667" iyz="0" izz="26.6208333333" />
+        </inertial>
+</link>
+
+<link name="left_wheel_link">
+	<visual>
+		<!-- <origin xyz="0 0 0" rpy="1.5707 0 0" /> -->
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<geometry>
+			<!-- <cylinder radius="0.1" length = "0.06"/> -->
+			<mesh filename="package://motoman_csda10f_support/meshes/base/rubber_wheel_left.dae"/>
+		</geometry>
+		<material name="orange">
+			<color rgba="1.0  0.55 0.0 1.0"/>
+		</material>
+	</visual>
+	<collision>
+		<!-- <origin xyz="0 0 0" rpy="1.5707 0 0" /> -->
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<geometry>
+			<!-- <cylinder radius="0.1" length = "0.06"/> -->
+			<mesh filename="package://motoman_csda10f_support/meshes/base/rubber_wheel_left.dae"/>
+		</geometry>
+		<material name="orange">
+			<color rgba="1.0  0.55 0.0 1.0"/>
+		</material>
+	</collision>
+	<!-- <xacro:cylinder_inertial_matrix  m="2.5" r="0.1" h="0.06"/> -->
+	<inertial>
+            <mass value="2.5" />
+            <inertia ixx="0.007" ixy="0" ixz="0" iyy="0.007" iyz="0" izz="0.0125" />
+        </inertial>
+</link>
+<gazebo reference="left_wheel_link">
+	 <material>Gazebo/Black</material>
+	 <gravity>true</gravity>
+</gazebo>
+
+<link name="right_wheel_link">
+	<visual>
+		<!-- <origin xyz="0 0 0" rpy="1.5707 0 0" /> -->
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<geometry>
+			<!-- <cylinder radius="0.1" length = "0.06"/> -->
+			<mesh filename="package://motoman_csda10f_support/meshes/base/rubber_wheel_right.dae"/>
+		</geometry>
+		<material name="orange">
+			<color rgba="1.0  0.55 0.0 1.0"/>
+		</material>
+	</visual>
+	<collision>
+		<!-- <origin xyz="0 0 0" rpy="1.5707 0 0" /> -->
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<geometry>
+			<!-- <cylinder radius="0.1" length = "0.06"/> -->
+			<mesh filename="package://motoman_csda10f_support/meshes/base/rubber_wheel_right.dae"/>
+		</geometry>
+		<material name="orange">
+			<color rgba="1.0  0.55 0.0 1.0"/>
+		</material>
+	</collision>
+	<!-- <xacro:cylinder_inertial_matrix  m="2.5" r="0.1" h="0.06"/> -->
+	<inertial>
+            <mass value="2.5" />
+            <inertia ixx="0.007" ixy="0" ixz="0" iyy="0.007" iyz="0" izz="0.0125" />
+        </inertial>
+</link>
+<gazebo reference="right_wheel_link">
+	 <material>Gazebo/Black</material>
+	 <gravity>true</gravity>
+</gazebo>
+
+
+<link name="left_wheel_link0">
+	<visual>
+		<!-- <origin xyz="0 0 0" rpy="1.5707 0 0" /> -->
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<geometry>
+			<!-- <cylinder radius="0.1" length = "0.06"/> -->
+			<mesh filename="package://motoman_csda10f_support/meshes/base/rubber_wheel_left.dae"/>
+		</geometry>
+		<material name="orange">
+			<color rgba="1.0  0.55 0.0 1.0"/>
+		</material>
+	</visual>
+	<collision>
+		<!-- <origin xyz="0 0 0" rpy="1.5707 0 0" /> -->
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<geometry>
+			<!-- <cylinder radius="0.1" length = "0.06"/> -->
+			<mesh filename="package://motoman_csda10f_support/meshes/base/rubber_wheel_left.dae"/>
+		</geometry>
+		<material name="orange">
+			<color rgba="1.0  0.55 0.0 1.0"/>
+		</material>
+	</collision>
+	<!-- <xacro:cylinder_inertial_matrix  m="2.5" r="0.1" h="0.06"/> -->
+	<inertial>
+            <mass value="2.5" />
+            <inertia ixx="0.007" ixy="0" ixz="0" iyy="0.007" iyz="0" izz="0.0125" />
+        </inertial>
+</link>
+<gazebo reference="left_wheel_link0">
+	 <material>Gazebo/Black</material>
+	 <gravity>true</gravity>
+</gazebo>
+
+<link name="right_wheel_link0">
+	<visual>
+		<!-- <origin xyz="0 0 0" rpy="1.5707 0 0" /> -->
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<geometry>
+			<!-- <cylinder radius="0.1" length = "0.06"/> -->
+			<mesh filename="package://motoman_csda10f_support/meshes/base/rubber_wheel_right.dae"/>
+		</geometry>
+		<material name="orange">
+			<color rgba="1.0  0.55 0.0 1.0"/>
+		</material>
+	</visual>
+	<collision>
+		<!-- <origin xyz="0 0 0" rpy="1.5707 0 0" /> -->
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<geometry>
+			<!-- <cylinder radius="0.1" length = "0.06"/> -->
+			<mesh filename="package://motoman_csda10f_support/meshes/base/rubber_wheel_right.dae"/>
+		</geometry>
+		<material name="orange">
+			<color rgba="1.0  0.55 0.0 1.0"/>
+		</material>
+	</collision>
+	<!-- <xacro:cylinder_inertial_matrix  m="2.5" r="0.1" h="0.06"/> -->
+	<inertial>
+            <mass value="2.5" />
+            <inertia ixx="0.007" ixy="0" ixz="0" iyy="0.007" iyz="0" izz="0.0125" />
+        </inertial>
+</link>
+<gazebo reference="right_wheel_link0">
+	 <material>Gazebo/Black</material>
+	 <gravity>true</gravity>
+</gazebo>
+
+
+<joint name="base_fix_mass" type="fixed">
+	<parent link="base_link"/>
+	<child link="base_link_mass"/>
+	<origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
+
+<joint name="left_wheel_joint" type="continuous">
+	<origin xyz="${-wheel_joint_x} ${wheel_joint_y} -0.05" rpy="0 0 0"/>
+	<parent link="base_link"/>
+	<child link="left_wheel_link"/>
+	<axis xyz="0 1 0"/>
+</joint>
+
+<transmission name="left_wheel_joint_trans">
+	 <type>transmission_interface/SimpleTransmission</type>
+	 <joint name="left_wheel_joint" >
+				<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	 </joint>
+	 <actuator name="left_wheel_joint_motor">
+			 <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			 <mechanicalReduction>1</mechanicalReduction>
+	 </actuator>
+</transmission>
+
+<joint name="right_wheel_joint" type="continuous">
+	<origin xyz="${-wheel_joint_x} ${-wheel_joint_y} -0.05" rpy="0 0 0"/>
+	<parent link="base_link"/>
+	<child link="right_wheel_link"/>
+	<axis xyz="0 1 0"/>
+</joint>
+
+<transmission name="right_wheel_joint_trans">
+	 <type>transmission_interface/SimpleTransmission</type>
+	 <joint name="right_wheel_joint" >
+				<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	 </joint>
+	 <actuator name="right_wheel_joint_motor">
+			 <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			 <mechanicalReduction>1</mechanicalReduction>
+	 </actuator>
+</transmission>
+
+
+<joint name="left_wheel_joint0" type="continuous">
+	<origin xyz="${wheel_joint_x} ${wheel_joint_y} -0.05" rpy="0 0 0"/>
+	<parent link="base_link"/>
+	<child link="left_wheel_link0"/>
+	<axis xyz="0 1 0"/>
+</joint>
+
+<transmission name="left_wheel_joint0_trans">
+	 <type>transmission_interface/SimpleTransmission</type>
+	 <joint name="left_wheel_joint0" >
+				<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	 </joint>
+	 <actuator name="left_wheel_joint0_motor">
+			 <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			 <mechanicalReduction>1</mechanicalReduction>
+	 </actuator>
+</transmission>
+
+<joint name="right_wheel_joint0" type="continuous">
+	<origin xyz="${wheel_joint_x} ${-wheel_joint_y} -0.05" rpy="0 0 0"/>
+	<parent link="base_link"/>
+	<child link="right_wheel_link0"/>
+	<axis xyz="0 1 0"/>
+</joint>
+
+<transmission name="right_wheel_joint0_trans">
+	 <type>transmission_interface/SimpleTransmission</type>
+	 <joint name="right_wheel_joint0" >
+				<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	 </joint>
+	 <actuator name="right_wheel_joint0_motor">
+			 <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			 <mechanicalReduction>1</mechanicalReduction>
+	 </actuator>
+</transmission>
+
+
+<!-- torso -->
+<link name="${prefix}base_link">
+	<visual>
+		<geometry>
+			 <!--<cylinder radius="0.1" length = "0.62"/> -->
+			<mesh filename="package://motoman_csda10f_support/meshes/sda10f/visual/motoman_base.stl" />
+		</geometry>
+		<!--<material name="blue">
+			<color rgba="0 0 1 1"/>
+		</material>-->
+		<material name="silver">
+			<color rgba="0.8 0.8 0.8 1"/>
+		</material>
+	</visual>
+	<collision>
+		<geometry>
+		     <!--<cylinder radius="0.1" length = "0.62"/> -->
+			<mesh filename="package://motoman_csda10f_support/meshes/sda10f/collision/motoman_base.stl" />
+		</geometry>
+		<material name="yellow">
+			<color rgba="0 1 1 1"/>
+		</material>
+	</collision>
+	<!-- <inertial>
+					<mass value="68.0"/>
+				<origin xyz="0.0508 -0.00001 0.33388" rpy="0 0 0"/>
+				<inertia ixx="12.645776" ixy="-6.14E-05" ixz="1.691224" iyy="12.88864" iyz="6.68E-05" izz="1.280156"/>
+		</inertial> -->
+		<inertial>
+            <mass value="68.0" />
+            <origin rpy="0 0 0" xyz="0.0508 -0.00001 0.33388" />
+            <inertia ixx="12.645776" ixy="-6.14E-05" ixz="1.691224" iyy="12.88864" iyz="6.68E-05" izz="1.280156" />
+        </inertial>
+</link>
+<gazebo reference="${prefix}base_link">
+	 <material>Gazebo/Blue</material>
+	 <gravity>true</gravity>
+</gazebo>
+
+<link name="${prefix}link_b1">
+	<visual>
+		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<geometry>
+			<mesh filename="package://motoman_csda10f_support/meshes/sda10f/visual/motoman_axis_b1.stl"/>
+		</geometry>
+		<material name="silver">
+			<color rgba="0.8 0.8 0.8 1"/>
+		</material>
+	</visual>
+	<collision>
+		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<geometry>
+			<mesh filename="package://motoman_csda10f_support/meshes/sda10f/collision/motoman_axis_b1.stl" />
+		</geometry>
+		<material name="yellow"/>
+	</collision>
+		<inertial>
+            <mass value="52.0" />
+            <origin rpy="0 0 0" xyz="0.05378 0.0000034 0.24362" />
+            <inertia ixx="4.132762" ixy="0.000011" ixz="0.943678" iyy="4.366928" iyz="0.000039" izz="0.697600" />
+        </inertial>
+</link>
+<gazebo reference="${prefix}link_b1">
+	 <material>Gazebo/White</material>
+	 <gravity>true</gravity>
+</gazebo>
+
+<link name="${prefix}link_b2">
+	<visual>
+		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<geometry>
+			<mesh filename="package://motoman_csda10f_support/meshes/sda10f/visual/motoman_axis_b1.stl"/>
+		</geometry>
+		<material name="silver">
+			<color rgba="0.8 0.8 0.8 1"/>
+		</material>
+	</visual>
+	<collision>
+		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<geometry>
+			<mesh filename="package://motoman_csda10f_support/meshes/sda10f/collision/motoman_axis_b1.stl" />
+		</geometry>
+		<material name="yellow"/>
+	</collision>
+		<inertial>
+            <mass value="52.0" />
+            <origin rpy="0 0 0" xyz="0.05378 0.0000034 0.24362" />
+            <inertia ixx="4.132762" ixy="0.000011" ixz="0.943678" iyy="4.366928" iyz="0.000039" izz="0.697600" />
+        </inertial>
+</link>
+<gazebo reference="${prefix}link_b2">
+	 <material>Gazebo/White</material>
+	 <gravity>true</gravity>
+</gazebo>
+
+
+<joint name="base_fix_torso" type="fixed">
+	<parent link="base_link"/>
+	<child link="${prefix}base_link"/>
+	<origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
+
+<joint name="${prefix}joint_b1" type="revolute">
+	<parent link="${prefix}base_link"/>
+	<child link="${prefix}link_b1"/>
+	<origin xyz="0.09257 0 0.62" rpy="0 0 0"/>
+	<!--<origin xyz="0.09257 0 0.8835" rpy="0 0 0"/>-->
+	<axis xyz="0 0 1" />
+	<limit lower="-2.9570" upper="2.9570" effort="100" velocity="2.26" />
+	<dynamics damping="0.7" friction="0.7"/>
+</joint>
+
+<transmission name="${prefix}tran_torso">
+	<type>transmission_interface/SimpleTransmission</type>
+	<joint name="${prefix}joint_b1">
+		<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	</joint>
+	<actuator name="${prefix}motor_torso">
+		<mechanicalReduction>1</mechanicalReduction>
+	</actuator>
+</transmission>
+
+ <joint name="${prefix}joint_b2" type="revolute">
+	<parent link="${prefix}base_link"/>
+	<child link="${prefix}link_b2"/>
+	<origin xyz="0.09257 0 0.62" rpy="0 0 0"/>
+	<!--<origin xyz="0.09257 0 0.8835" rpy="0 0 0"/>-->
+	<axis xyz="0 0 1" />
+	<limit lower="-2.9570" upper="2.9570" effort="100" velocity="2.26" />
+	<mimic joint="${prefix}joint_b1" multiplier="1" offset="0"/>
+	<dynamics damping="0.7" friction="0.7"/>
+</joint>
+
+<transmission name="${prefix}tran_torso2">
+	<type>transmission_interface/SimpleTransmission</type>
+	<joint name="${prefix}joint_b2">
+		<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	</joint>
+	<actuator name="${prefix}motor_torso2">
+		<mechanicalReduction>1</mechanicalReduction>
+	</actuator>
+</transmission>
+
+
+
+<!-- deepth camera -->
+<link name="camera_link0">
+	<visual>
+		<origin xyz=" 0 0 0 " rpy="0 0 0"/>
+		<geometry>
+			<cylinder radius="0.07" length="0.4"/>
+		</geometry>
+		<material name="blue">
+			<color rgba="0 0 1 1"/>
+		</material>
+	</visual>
+	<collision>
+		<origin xyz=" 0 0 0 " rpy="0 0 0"/>
+		<geometry>
+			<cylinder radius="0.08" length="0.45"/>
+		</geometry>
+		<material name="yellow"/>
+	</collision>
+	<!-- <xacro:cylinder_inertial_matrix  m="1.0" r="0.07" h="0.4"/> -->
+	<inertial>
+            <mass value="1.0" />
+            <inertia ixx="0.0145583333333" ixy="0" ixz="0" iyy="0.0145583333333" iyz="0" izz="0.00245" />
+        </inertial>
+</link>
+<gazebo reference="camera_link0">
+	 <material>Gazebo/Blue</material>
+	 <gravity>true</gravity>
+</gazebo>
+
+<link name="camera_link_re">
+	<visual>
+		<origin xyz=" 0 0 0 " rpy="0 0 ${M_PI/2}"/>
+		<geometry>
+			<mesh filename="package://motoman_csda10f_support/meshes/sensor/kinect.dae"/>
+		</geometry>
+		<material name="black">
+			<color rgba="0 0 0 0.95"/>
+		</material>
+	</visual>
+	<collision>
+		<origin xyz=" 0 0 0 " rpy="0 0 0"/>
+		<geometry>
+		  <box size="0.065 0.27 0.082"/>
+			<!-- <mesh filename="package://motoman_csda10f_support/meshes/sensor/kinect.dae"/> -->
+		</geometry>
+		<material name="yellow"/>
+	</collision>
+	<inertial>
+            <mass value="0.935" />
+            <inertia ixx="0.0053937" ixy="0" ixz="0" iyy="0.00085311" iyz="0" izz="0.00519899" />
+        </inertial>
+</link>
+<gazebo reference="camera_link_re">
+	 <material>Gazebo/Black</material>
+	 <gravity>true</gravity>
+</gazebo>
+
+<link name="camera_reference_link" />
+
+
+<joint name="camera_joint_y" type="revolute">
+	<origin xyz="0.1 0 0.40" rpy="0 0 0"/>
+	<parent link="${prefix}link_b1"/>
+	<child link="camera_link0"/>
+	<axis xyz="0 1 0"/>
+	<limit lower="-0.2657" upper="1.6570" effort="100" velocity="2.26"/>
+</joint>
+
+<transmission name="camera_joint_y_trans">
+	 <type>transmission_interface/SimpleTransmission</type>
+	 <joint name="camera_joint_y" >
+				<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	 </joint>
+	 <actuator name="camera_joint_y_motor">
+			 <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			 <mechanicalReduction>1</mechanicalReduction>
+	 </actuator>
+</transmission>
+
+<joint name="camera_joint_z" type="revolute">
+	<origin xyz="0.05 0 0.18" rpy="0 ${M_PI/4} 0"/>
+	<parent link="camera_link0"/>
+	<child link="camera_link_re"/>
+	<axis xyz="0 0 1"/>
+	<limit lower="-2.9570" upper="2.9570" effort="100" velocity="2.26"/>
+</joint>
+
+<transmission name="camera_joint_z_trans">
+	 <type>transmission_interface/SimpleTransmission</type>
+	 <joint name="camera_joint_z" >
+				<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	 </joint>
+	 <actuator name="camera_joint_z_motor">
+			 <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			 <mechanicalReduction>1</mechanicalReduction>
+	 </actuator>
+</transmission>
+
+<joint name="$base_fix_camera" type="fixed">
+	<parent link="camera_link_re"/>
+	<child link="camera_reference_link"/>
+	<origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}"/>
+</joint>
+
+<!--gazebo_camera-->
+<gazebo reference="camera_link_re">
+		<sensor type="depth" name="camera">
+				<always_on>true</always_on>
+				<update_rate>20.0</update_rate>
+				<camera>
+						<horizontal_fov>${60.0*M_PI/180.0}</horizontal_fov>
+						<image>
+								<format>R8G8B8</format>
+								<width>640</width>
+								<height>480</height>
+						</image>
+						<clip>
+								<near>0.05</near>
+								<far>8.0</far>
+						</clip>
+				</camera>
+				<plugin name="kinect_camera_controller" filename="libgazebo_ros_openni_kinect.so">
+						<cameraName>camera</cameraName>
+						<alwaysOn>true</alwaysOn>
+						<updateRate>10</updateRate>
+						<imageTopicName>rgb/image_raw</imageTopicName>
+						<depthImageTopicName>depth/image_raw</depthImageTopicName>
+						<pointCloudTopicName>depth/points</pointCloudTopicName>
+						<cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+						<depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+						<frameName>camera_reference_link</frameName>
+						<baseline>0.1</baseline>
+						<distortion_k1>0.0</distortion_k1>
+						<distortion_k2>0.0</distortion_k2>
+						<distortion_k3>0.0</distortion_k3>
+						<distortion_t1>0.0</distortion_t1>
+						<distortion_t2>0.0</distortion_t2>
+						<pointCloudCutoff>0.4</pointCloudCutoff>
+				</plugin>
+		</sensor>
+</gazebo>
+
+
+<!--differential_drive_control-->
+<gazebo>
+		<plugin name="differential_drive_controller"
+						filename="libgazebo_ros_diff_drive.so">
+				<rosDebugLevel>na</rosDebugLevel>
+				<publishWheelTF>true</publishWheelTF>
+				<robotNamespace>/</robotNamespace>
+				<publishTf>1</publishTf>
+				<publishWheelJointState>true</publishWheelJointState>
+				<alwaysOn>true</alwaysOn>
+				<updateRate>100.0</updateRate>
+				<legacyMode>true</legacyMode>
+				<leftJoint>left_wheel_joint</leftJoint>
+				<rightJoint>right_wheel_joint</rightJoint>
+				<wheelSeparation>${2*wheel_joint_y}</wheelSeparation>
+				<wheelDiameter>${2*wheel_radius}</wheelDiameter>
+				<broadcastTF>1</broadcastTF>
+				<wheelTorque>200</wheelTorque>
+				<wheelAcceleration>2.0</wheelAcceleration>
+				<commandTopic>cmd_vel</commandTopic>
+				<odometryFrame>odom</odometryFrame>
+				<odometryTopic>odom</odometryTopic>
+				<publishOdomTF>false</publishOdomTF>
+				<odometrySource>world</odometrySource>
+				<robotBaseFrame>base_link</robotBaseFrame>
+		</plugin>
+</gazebo>
+
+
+</xacro:macro>
+</robot>

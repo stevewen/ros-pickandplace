@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+     <!-- <xacro:property name="torso_offset_x" value="0.00" />
+	   <xacro:property name="torso_offset_y" value="0.00" />
+	   <xacro:property name="torso_offset_z" value="1.00" /> -->
+
+     <!-- <xacro:include filename="$(find robot_description)/urdf/materials.urdf.xacro" /> -->
+     <xacro:include filename="$(find robot_description)/urdf/torso_macro.xacro" />
+     <xacro:include filename="$(find robot_description)/urdf/arm_macro.xacro" />
+     <!-- <xacro:include filename="$(find robot_description)/urdf/hand.urdf.xacro" /> -->
+     <xacro:include filename="$(find robot_description)/urdf/left_hand_robot.urdf.xacro" />
+     <xacro:include filename="$(find robot_description)/urdf/right_hand_robot.urdf.xacro" />
+
+     <xacro:macro name="motoman" params="prefix">
+
+       <!-- <link name="${prefix}torso_link_b1" color="black"/> -->
+
+       <!-- <link name="world"/>
+
+       <joint name="world_with_base" type="floating">
+         <parent link="world"/>
+         <child link="base_link"/>
+       </joint> -->
+
+        <xacro:torso name="${prefix}torso" prefix="${prefix}torso_"/>
+
+        <xacro:motoman_arm name="${prefix}arm_left" prefix="${prefix}arm_left_" parent="${prefix}torso_link_b1" reflect="1">
+            <origin xyz="0.09996 0.0275 0.32214" rpy="1.57 0 0" />
+        </xacro:motoman_arm>
+
+        <!-- <xacro:svh parent="${prefix}arm_left_link_tool0" name="left_hand" side="-1">
+           <origin xyz="0.0 0.0 -0.03"  rpy= "3.14 0 -1.57" />
+        </xacro:svh> -->
+
+        <xacro:motoman_arm name="${prefix}arm_right" prefix="${prefix}arm_right_" parent="${prefix}torso_link_b1" reflect="-1">
+            <origin xyz="0.09996 -0.0275 0.32214" rpy="1.57 0 0" />
+        </xacro:motoman_arm>
+
+        <!-- <xacro:svh parent="${prefix}arm_right_link_tool0" name="right_hand" side="1">
+           <origin xyz="0.0 0.0 -0.035"  rpy= "3.14 0 1.57" />
+        </xacro:svh> -->
+
+        <xacro:left_hand />
+
+        <joint name="arm_fixed_left_hand" type="fixed">
+            <parent link="arm_left_link_tool0"/>
+            <child link="left_base_link"/>
+            <origin xyz="0.0  0.0 -0.061"  rpy= "3.14 0 1.57" />
+        </joint>
+
+        <xacro:right_hand />
+
+        <joint name="arm_fixed_right_hand" type="fixed">
+            <parent link="arm_right_link_tool0"/>
+            <child link="right_base_link"/>
+            <origin xyz="0.0  0.0 -0.061"  rpy= "3.14 0 -1.57" />
+        </joint>
+
+
+     </xacro:macro>
+
+</robot>

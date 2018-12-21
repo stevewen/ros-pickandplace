@@ -1,0 +1,84 @@
+robot_csda10f:
+# Publish all joint states --------------------------
+  # joint_state_controller:
+  #   type: joint_state_controller/JointStateController
+  #   publish_rate: 50
+
+
+  arm_l_1_controller:
+    type: position_controllers/JointPositionController
+    joint: arm_left_joint_1_s
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  arm_l_2_controller:
+    type: position_controllers/JointPositionController
+    joint: arm_left_joint_2_l
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  arm_l_3_controller:
+    type: position_controllers/JointPositionController
+    joint: arm_left_joint_3_e
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  arm_l_4_controller:
+    type: position_controllers/JointPositionController
+    joint: arm_left_joint_4_u
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  arm_l_5_controller:
+    type: position_controllers/JointPositionController
+    joint: arm_left_joint_5_r
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  arm_l_6_controller:
+    type: position_controllers/JointPositionController
+    joint: arm_left_joint_6_b
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  arm_l_7_controller:
+    type: position_controllers/JointPositionController
+    joint: arm_left_joint_7_t
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+
+
+  arm_r_1_controller:
+    type: position_controllers/JointPositionController
+    joint: arm_right_joint_1_s
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  arm_r_2_controller:
+    type: position_controllers/JointPositionController
+    joint: arm_right_joint_2_l
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  arm_r_3_controller:
+    type: position_controllers/JointPositionController
+    joint: arm_right_joint_3_e
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  arm_r_4_controller:
+    type: position_controllers/JointPositionController
+    joint: arm_right_joint_4_u
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  arm_r_5_controller:
+    type: position_controllers/JointPositionController
+    joint: arm_right_joint_5_r
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  arm_r_6_controller:
+    type: position_controllers/JointPositionController
+    joint: arm_right_joint_6_b
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  arm_r_7_controller:
+    type: position_controllers/JointPositionController
+    joint: arm_right_joint_7_t
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+
+
+  left_wheel_controller:
+    type: position_controllers/JointPositionController
+    joint: left_wheel_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+  right_wheel_controller:
+    type: position_controllers/JointPositionController
+    joint: right_wheel_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+
+  torso_controller:
+    type: position_controllers/JointPositionController
+    joint: torso_joint_b1
+    pid: {p: 100.0, i: 0.01, d: 10.0}

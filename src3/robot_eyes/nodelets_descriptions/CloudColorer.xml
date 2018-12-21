@@ -1,0 +1,8 @@
+
+<library path="lib/robot_eyes">
+  <class name="CloudColorer" type="CloudColorer" base_class_type="nodelet::Nodelet">
+    <description>
+      Color a PointCloud for visualization purposes, given an array of PointIndices representing the inliers of each cluster.
+    </description>
+  </class>
+</library

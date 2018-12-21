@@ -1,0 +1,174 @@
+zeal_robot:
+# MoveIt-specific simulation settings
+  moveit_sim_hw_interface:
+    joint_model_group: controllers_initial_group_
+    joint_model_group_pose: controllers_initial_pose_
+# Settings for ros_control control loop
+  generic_hw_control_loop:
+    loop_hz: 300
+    cycle_time_error_threshold: 0.01
+# Settings for ros_control hardware interface
+  hardware_interface:
+    joints:
+      - virtual_joint
+      - torso_joint_b1
+      - arm_left_joint_1_s
+      - arm_left_joint_2_l
+      - arm_left_joint_3_e
+      - arm_left_joint_4_u
+      - arm_left_joint_5_r
+      - arm_left_joint_6_b
+      - arm_left_joint_7_t
+      - left_base_hand_big_thumb_1
+      - left_base_hand_big_thumb_2
+      - left_base_hand_big_thumb_3
+      - left_hand_finger_1_joint
+      - left_hand_finger_shizhimid_joint
+      - left_hand_finger_shizhitop_joint
+      - left_hand_finger_2_joint
+      - left_hand_finger_zhongzhimid_joint
+      - left_hand_finger_zhongzhitop_joint
+      - left_hand_finger_3_joint
+      - left_hand_finger_wumingzhimid_joint
+      - left_hand_finger_wumingzhitop_joint
+      - left_hand_finger_4_joint
+      - left_hand_finger_xiaozhimid_joint
+      - left_hand_finger_xiaozhitop_joint
+      - arm_right_joint_1_s
+      - arm_right_joint_2_l
+      - arm_right_joint_3_e
+      - arm_right_joint_4_u
+      - arm_right_joint_5_r
+      - arm_right_joint_6_b
+      - arm_right_joint_7_t
+      - right_base_hand_big_thumb_1
+      - right_base_hand_big_thumb_2
+      - right_base_hand_big_thumb_3
+      - right_hand_finger_1_joint
+      - right_hand_finger_shizhimid_joint
+      - right_hand_finger_shizhitop_joint
+      - right_hand_finger_2_joint
+      - right_hand_finger_zhongzhimid_joint
+      - right_hand_finger_zhongzhitop_joint
+      - right_hand_finger_3_joint
+      - right_hand_finger_wumingzhimid_joint
+      - right_hand_finger_wumingzhitop_joint
+      - right_hand_finger_4_joint
+      - right_hand_finger_xiaozhimid_joint
+      - right_hand_finger_xiaozhitop_joint
+      - camera_joint_y
+      - camera_joint_z
+      - left_wheel_joint
+      - right_wheel_joint
+    sim_control_mode: 1  # 0: position, 1: velocity
+# Publish all joint states
+# Creates the /joint_states topic necessary in ROS
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+  controller_list:
+    - name: csda10f_controller
+      action_ns: follow_joint_trajectory
+      default: True
+      type: FollowJointTrajectory
+      joints:
+        - arm_left_joint_1_s
+        - arm_left_joint_2_l
+        - arm_left_joint_3_e
+        - arm_left_joint_4_u
+        - arm_left_joint_5_r
+        - arm_left_joint_6_b
+        - arm_left_joint_7_t
+        - arm_right_joint_1_s
+        - arm_right_joint_2_l
+        - arm_right_joint_3_e
+        - arm_right_joint_4_u
+        - arm_right_joint_5_r
+        - arm_right_joint_6_b
+        - arm_right_joint_7_t
+        - torso_joint_b1
+    - name: left_arm_controller
+      action_ns: follow_joint_trajectory
+      default: True
+      type: FollowJointTrajectory
+      joints:
+        - arm_left_joint_1_s
+        - arm_left_joint_2_l
+        - arm_left_joint_3_e
+        - arm_left_joint_4_u
+        - arm_left_joint_5_r
+        - arm_left_joint_6_b
+        - arm_left_joint_7_t
+    - name: right_arm_controller
+      action_ns: follow_joint_trajectory
+      default: True
+      type: FollowJointTrajectory
+      joints:
+        - arm_right_joint_1_s
+        - arm_right_joint_2_l
+        - arm_right_joint_3_e
+        - arm_right_joint_4_u
+        - arm_right_joint_5_r
+        - arm_right_joint_6_b
+        - arm_right_joint_7_t
+    - name: camera_controller
+      action_ns: follow_joint_trajectory
+      default: True
+      type: FollowJointTrajectory
+      joints:
+        - camera_joint_y
+        - camera_joint_z
+    - name: base_controller
+      action_ns: follow_joint_trajectory
+      default: True
+      type: FollowJointTrajectory
+      joints:
+        - virtual_joint
+        - left_wheel_joint
+        - right_wheel_joint
+    - name: torso_controller
+      action_ns: follow_joint_trajectory
+      default: True
+      type: FollowJointTrajectory
+      joints:
+        torso_joint_b1
+    - name: right_hand_controller
+      action_ns: follow_joint_trajectory
+      default: True
+      type: FollowJointTrajectory
+      joints:
+        - right_base_hand_big_thumb_1
+        - right_base_hand_big_thumb_2
+        - right_base_hand_big_thumb_3
+        - right_hand_finger_1_joint
+        - right_hand_finger_shizhimid_joint
+        - right_hand_finger_shizhitop_joint
+        - right_hand_finger_2_joint
+        - right_hand_finger_zhongzhimid_joint
+        - right_hand_finger_zhongzhitop_joint
+        - right_hand_finger_3_joint
+        - right_hand_finger_wumingzhimid_joint
+        - right_hand_finger_wumingzhitop_joint
+        - right_hand_finger_4_joint
+        - right_hand_finger_xiaozhimid_joint
+        - right_hand_finger_xiaozhitop_joint
+    - name: left_hand_controller
+      action_ns: follow_joint_trajectory
+      default: True
+      type: FollowJointTrajectory
+      joints:
+        - left_base_hand_big_thumb_1
+        - left_base_hand_big_thumb_2
+        - left_base_hand_big_thumb_3
+        - left_hand_finger_1_joint
+        - left_hand_finger_shizhimid_joint
+        - left_hand_finger_shizhitop_joint
+        - left_hand_finger_2_joint
+        - left_hand_finger_zhongzhimid_joint
+        - left_hand_finger_zhongzhitop_joint
+        - left_hand_finger_3_joint
+        - left_hand_finger_wumingzhimid_joint
+        - left_hand_finger_wumingzhitop_joint
+        - left_hand_finger_4_joint
+        - left_hand_finger_xiaozhimid_joint
+        - left_hand_finger_xiaozhitop_joint

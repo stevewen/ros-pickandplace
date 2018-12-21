@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>robot_description</name>
+  <version>0.3.1</version>
+  <description>The robot description package</description>
+
+  <author email="daniels.ordonez@gmail.com">Daniel Felipe Ordonez</author>
+  <maintainer email="daniels.ordonez@gmail.com">Daniel Felipe Ordonez</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">https://github.com/Danfoa/invite-robotics/wiki</url>
+  <url type="bugtracker">https://github.com/Danfoa/invite-robotics/issues</url>
+  <url type="repository">https://github.com/Danfoa/invite-robotics</url>
+
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- URDF or robot available at: https://github.com/amrith1007/motoman_experimental/tree/kinetic-devel/motoman_csda10f_support-->
+  <depend>motoman_csda10f_support</depend>
+  
+  <depend>robotiq_arg2f_model_visualization</depend>
+  <depend>robotiq_2f_model</depend>
+  
+  <depend>joint_state_publisher</depend>
+  <depend>robot_state_publisher</depend>
+  
+  <depend>xacro</depend>
+
+  <!-- Dependencies for hardware connection> -->
+  <depend>motoman_driver</depend>
+  <depend>roslaunch</depend>
+  
+  <!-- The export tag contains other, unsspecified, tags -->
+  <export>
+   <architecture_independent/>
+  </export>
+</package>

@@ -1,0 +1,64 @@
+<launch>
+
+  <!-- load the joint state controller -->
+  <rosparam file="$(find robot_gazebo)/config/joint_state_controller.yaml" command="load" />
+  <node name="joint_state_controller_spawner" pkg="controller_manager"  type="spawner" respawn="false" output="screen" ns="/robot_csda10f"  args="joint_state_controller" />
+
+  <!-- load the robot controllers -->
+  <rosparam file="$(find robot_gazebo)/config/arm_controller.yaml" command="load" />
+  <node name="arm_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+       output="screen" ns="/robot_csda10f" args="arm_l_1_controller
+                                                 arm_l_2_controller
+                                                 arm_l_3_controller
+                                                 arm_l_4_controller
+                                                 arm_l_5_controller
+                                                 arm_l_6_controller
+                                                 arm_l_7_controller
+                                                 arm_r_1_controller
+                                                 arm_r_2_controller
+                                                 arm_r_3_controller
+                                                 arm_r_4_controller
+                                                 arm_r_5_controller
+                                                 arm_r_6_controller
+                                                 arm_r_7_controller
+                                                 torso_controller
+                                                 left_wheel_controller
+                                                 right_wheel_controller" />
+
+  <rosparam file= "$(find robot_gazebo)/config/left_hand_controller.yaml" command = "load"/>
+  <node name = "left_hand_controller_spawner" pkg="controller_manager" type= "spawner" respawn= "false"
+    output= "screen" ns = "/robot_csda10f" args = "   left_base_hand_big_thumb_1_joint_position_controller
+                                                      left_base_hand_big_thumb_2_joint_position_controller
+                                                      left_base_hand_big_thumb_3_joint_position_controller
+                                                      left_hand_finger_1_joint_position_controller
+                                                      left_hand_finger_shizhimid_joint_position_controller
+                                                      left_hand_finger_shizhitop_joint_position_controller
+                                                      left_hand_finger_2_joint_position_controller
+                                                      left_hand_finger_zhongzhimid_joint_position_controller
+                                                      left_hand_finger_zhongzhitop_joint_position_controller
+                                                      left_hand_finger_3_joint_position_controller
+                                                      left_hand_finger_wumingzhimid_joint_position_controller
+                                                      left_hand_finger_wumingzhitop_joint_position_controller
+                                                      left_hand_finger_4_joint_position_controller
+                                                      left_hand_finger_xiaozhimid_joint_position_controller
+                                                      left_hand_finger_xiaozhitop_joint_position_controller" />
+
+<rosparam file= "$(find robot_gazebo)/config/right_hand_controller.yaml" command = "load"/>
+<node name = "right_hand_controller_spawner" pkg="controller_manager" type= "spawner" respawn= "false"
+  output= "screen" ns = "/robot_csda10f" args = "   right_base_hand_big_thumb_1_joint_position_controller
+                                                    right_base_hand_big_thumb_2_joint_position_controller
+                                                    right_base_hand_big_thumb_3_joint_position_controller
+                                                    right_hand_finger_1_joint_position_controller
+                                                    right_hand_finger_shizhimid_joint_position_controller
+                                                    right_hand_finger_shizhitop_joint_position_controller
+                                                    right_hand_finger_2_joint_position_controller
+                                                    right_hand_finger_zhongzhimid_joint_position_controller
+                                                    right_hand_finger_zhongzhitop_joint_position_controller
+                                                    right_hand_finger_3_joint_position_controller
+                                                    right_hand_finger_wumingzhimid_joint_position_controller
+                                                    right_hand_finger_wumingzhitop_joint_position_controller
+                                                    right_hand_finger_4_joint_position_controller
+                                                    right_hand_finger_xiaozhimid_joint_position_controller
+                                                    right_hand_finger_xiaozhitop_joint_position_controller" />
+
+</launch>

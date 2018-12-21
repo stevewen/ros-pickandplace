@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<!--Develped by Daniel Ordonez 11.01.2018 - dfordoneza@unal.edu.co
+	INFORMATION:
+		This xacro file creates the urdf description of Invite's CSDA10F dual-arm robot with
+		both 2-Finger Adaptative Robotiq Grippers (140mm one for the right arm and 80mm one for the left one)
+-->
+
+<robot name="motoman_csda10f" xmlns:xacro="http://ros.org/wiki/xacro">
+<!-- Import macros required-->
+	<!--Import macro for the CSDA10F robot-->
+	<xacro:include filename="$(find motoman_csda10f_support)/urdf/csda10f_macro.xacro" />
+	<!--Import macro for left arm gripper-->
+  	<xacro:include filename="$(find robot_description)/urdf/left_gripper_macro.xacro" />
+  	<!--Import macro for right arm gripper-->
+  	<!--<xacro:include filename="$(find robot_description)/urdf/right_gripper_macro.xacro" />-->
+	<xacro:include filename="$(find robot_description)/urdf/right_hand_robot.urdf.xacro" />
+
+<!--Create instance of the macros imported-->
+	<!--Create an instance of YASKAWA Motoman CSDA10F robot-->
+	<xacro:motoman_csda10f prefix=""/>
+	<!--Create an instance of the right arm gripper macro-->
+  	<!--<xacro:invite_csda10f_right_gripper prefix="arm_right_"/>-->
+	<!--Create an instance of the right left gripper macro-->
+  	<xacro:invite_csda10f_left_gripper prefix="arm_left_"/>
+
+<!--Joints joining the grippers to the robot-->
+	<joint name="left_gripper_to_robot_joint" type="fixed">
+    	<parent link="arm_left_link_tool0" />
+    	<child link="arm_left_link_force_sensor_adapter_plate" />
+		<origin xyz="0 0 0" rpy="0 ${pi} 0"/>
+		<axis xyz="0 0 1"/>
+ 	 </joint>
+
+	<xacro:right_hand />
+
+	<joint name="right_gripper_to_robot_joint" type="fixed">
+		<parent link="arm_right_link_tool0" />
+		<!--<child link="arm_right_link_gripper_adapter_plate" />-->
+		<child link="right_base_link"/>
+		<!--<origin xyz="0 0 0" rpy="${-pi/2} 0 0"/>-->
+		<origin xyz="0.0  0.0 -0.061"  rpy= "${pi} 0 -${pi/2}" />
+		<axis xyz="0 0 1"/>
+  	</joint>
+
+<!--Define the TCP of the grippers -->
+	<link name="arm_left_link_tcp" />
+	<link name="arm_right_link_tcp" />
+
+<!--Define the position of the TCP with respect to the arm flange-->
+	<joint name="arm_left_joint_tcp" type="fixed" >
+      <origin xyz="0 0 -0.2" rpy="0 ${pi} 0"/>
+      <parent link="arm_left_link_tool0" />
+      <child link="arm_left_link_tcp" />
+    </joint>
+
+	<joint name="arm_right_joint_tcp" type="fixed" >
+			<origin xyz="0.05 -0.01 -0.092" rpy="${pi} 0 0"/>
+			<parent link="arm_right_link_tool0" />
+			<child link="arm_right_link_tcp" />
+	</joint>
+
+  <!-- Fix robot to Gazebo world -->
+  <link name="map"/>
+   <joint name="odom_map" type="fixed">
+     <origin xyz="0 0 -0.2" rpy="0 0 0"/>
+     <parent link="base_link"/>
+     <child link="map"/>
+  </joint>
+
+
+</robot>

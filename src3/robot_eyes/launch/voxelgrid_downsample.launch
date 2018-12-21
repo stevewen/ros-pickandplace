@@ -1,0 +1,11 @@
+<launch>
+
+    <include file="$(find robot_eyes)/launch/depth_img_processing.launch"/>
+
+    <include file="$(find robot_eyes)/launch/gazebo_test_scenareo.launch">
+        <arg name="gui" value="false"/>
+    </include>
+
+    <node pkg="robot_eyes" type="example_voxelgrid" name="example_voxelgrid" 
+        args="input:=/realsense/camera/depth_registered/points" output="screen"/>
+</launch>

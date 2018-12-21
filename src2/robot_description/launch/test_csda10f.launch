@@ -1,0 +1,22 @@
+
+<launch>
+	<param name="robot_description" command="$(find xacro)/xacro --inorder '$(find robot_description)/urdf/invite_csda10f.xacro'" />
+	<param name="use_gui" value="true" />
+
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+    <!-- Set the name of the map yaml file: can be overridden on the command line. -->
+    <arg name="map" default="map2.yaml" />
+    <!-- Run the map server with the desired map -->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find robot_description)/maps/$(arg map)"/>
+
+	<!--<param name="pub_map_odom_transform" value="true"/>
+    <param name="map_frame" value="map" />
+    <param name="odom_frame" value="odom" />
+	<param name="base_frame" value="base_link" />-->
+
+	<!-- Launch Rviz with a custom configuration file for the CSDA10F robot and tool TCP's-->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_description)/config/default_config.rviz" required="true" 
+		output="screen"/>
+</launch>

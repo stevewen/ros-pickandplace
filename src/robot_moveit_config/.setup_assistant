@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: robot_description
+    relative_path: urdf/robot.xacro
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/zeal_robot.srdf
+  CONFIG:
+    author_name: wen lin
+    author_email: wenlin720@gmail.com
+    generated_timestamp: 1542681887
