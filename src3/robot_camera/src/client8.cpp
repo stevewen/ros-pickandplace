@@ -131,7 +131,7 @@ int main(int argc, char **argv)
       for (int i = 0; i < num; i++)
       {
  
-        float  cxx = 0.0;  float  cyy = 0.1;  float  czz =-0.1;
+        float  cxx = 0.0;  float  cyy = 0.01;  float  czz =-0.01;
 
         if(srv.response.Class[i].compare("box") == 0)
         {
@@ -239,13 +239,13 @@ int main(int argc, char **argv)
   moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
   // Define visualization parameters
   namespace rvt = rviz_visual_tools;
-  moveit_visual_tools::MoveItVisualTools visual_tools("base_link");
+  moveit_visual_tools::MoveItVisualTools visual_tools("camera_link");
   visual_tools.deleteAllMarkers();
   visual_tools.loadRemoteControl();
 
   // Set up tutorial text position
   Eigen::Affine3d text_pose = Eigen::Affine3d::Identity();
-  text_pose.translation().z() = -0.2; // above head of CSDA10F
+  text_pose.translation().z() = -0.20; // above head of CSDA10F
 
   visual_tools.publishText(text_pose, "Robot Pick and Place Demo \n Press next to start", rvt::WHITE, rvt::XXLARGE);
   // visual_tools.trigger();
@@ -679,7 +679,7 @@ for (int ip = 0; ip < num_left; ip++)
   else if (inputString2 == "chipbox")
   {
       objecty = object1; meshy_pose = mesh1_pose;
-      tzz =-0.055; tyy=-0.115; txx= 0.025;  
+      tzz =-0.05; tyy=-0.11; txx= 0.025;  
       bzz =-0.06; byy= 0.64; bxx=-0.73;   
       graspx_left_gripper= "grasp2_left_gripper";
   }
@@ -941,7 +941,7 @@ for (int ip = 0; ip < (num - num_left); ip++)
   {
       objectx = object1; meshx_pose = mesh1_pose;
       dxx= 0.79; dyy= 0.66; dzz=-0.03;   
-      axx= 0.03; ayy=-0.092; azz=-0.028;
+      axx= 0.025; ayy=-0.09; azz=-0.03;
       thx=0.0; thy=M_PI/4; thz=M_PI/2;    
       graspx_right_gripper= "grasp_right_gripper";
   }
