@@ -131,7 +131,7 @@ int main(int argc, char **argv)
       for (int i = 0; i < num; i++)
       {
  
-        float  cxx = 0.0;  float  cyy = 0.1;  float  czz =-0.1;
+        float  cxx = 0.0;  float  cyy = 0.0;  float  czz = 0.0;
 
         if(srv.response.Class[i].compare("box") == 0)
         {
@@ -192,8 +192,8 @@ int main(int argc, char **argv)
         {
         res_name[5] = srv.response.Class[i];
         res_x[5] = srv.response.center_x[i] + cxx;
-        res_y[5] = srv.response.center_y[i] + cyy + 0.06;
-        res_z[5] = srv.response.center_z[i] + czz + 0.06;
+        res_y[5] = srv.response.center_y[i] + cyy + 0.08;
+        res_z[5] = srv.response.center_z[i] + czz + 0.08;
         ori_x[5] = srv.response.front_x[i];
         ori_y[5] = srv.response.front_y[i];
         ori_z[5] = srv.response.front_z[i];
@@ -245,7 +245,7 @@ int main(int argc, char **argv)
 
   // Set up tutorial text position
   Eigen::Affine3d text_pose = Eigen::Affine3d::Identity();
-  text_pose.translation().z() = -0.2; // above head of CSDA10F
+  text_pose.translation().z() = -0.5; // above head of CSDA10F
 
   visual_tools.publishText(text_pose, "Robot Pick and Place Demo \n Press next to start", rvt::WHITE, rvt::XXLARGE);
   // visual_tools.trigger();
@@ -451,7 +451,7 @@ int main(int argc, char **argv)
 
  // 3**********************************************************************************
   //Vector to scale
-  Vector3d vectorScale3(0.04, 0.04, 0.04);
+  Vector3d vectorScale3(0.035, 0.035, 0.035);
   // Define a collision object ROS message.
   moveit_msgs::CollisionObject object3;
   // The id of the object is used to identify it.
@@ -567,7 +567,7 @@ int main(int argc, char **argv)
 
  // 5**********************************************************************************
   //Vector to scale
-  Vector3d vectorScale5(0.022, 0.022, 0.012);
+  Vector3d vectorScale5(0.019, 0.019, 0.012);
   // Define a collision object ROS message.
   moveit_msgs::CollisionObject object5;
   // The id of the object is used to identify it.
@@ -658,14 +658,14 @@ for (int ip = 0; ip < num_left; ip++)
   else if (inputString2 == "cube")
   {
       objecty = object4; meshy_pose = mesh4_pose;
-      tzz = 0.01; tyy=-0.03; txx= 0.0;  
+      tzz =-0.01; tyy=-0.04; txx= 0.0;  
       bzz = 0.16; byy= 0.34; bxx=-0.74; 
       graspx_left_gripper= "grasp_left_gripper";
   }
   else if (inputString2 == "ball")
   {
       objecty = object2; meshy_pose = mesh2_pose;
-      tzz = 0.01; tyy=-0.04; txx= 0.0;
+      tzz = 0.01; tyy=-0.045; txx= 0.0;
       bzz =-0.1; byy= 0.57; bxx=-0.68;   
       graspx_left_gripper= "grasp_left_gripper";
   }
@@ -679,14 +679,14 @@ for (int ip = 0; ip < num_left; ip++)
   else if (inputString2 == "chipbox")
   {
       objecty = object1; meshy_pose = mesh1_pose;
-      tzz =-0.055; tyy=-0.115; txx= 0.025;  
+      tzz =-0.09; tyy=-0.09; txx= 0.03;  
       bzz =-0.06; byy= 0.64; bxx=-0.73;   
       graspx_left_gripper= "grasp2_left_gripper";
   }
   else if(inputString2 == "teabox")
   {
       objecty = object5; meshy_pose = mesh5_pose;
-      tzz =-0.042; tyy=-0.12; txx= 0.045;  
+      tzz =-0.06; tyy=-0.07; txx= 0.043;  
       bzz = 0.09; byy= 0.48; bxx=-0.74;
       graspx_left_gripper= "grasp2_left_gripper";
   }
@@ -713,7 +713,7 @@ for (int ip = 0; ip < num_left; ip++)
   // Set up target pose for left arm.
   geometry_msgs::Pose approach2_pose = meshy_pose;    // Use target object pose (x,y,z) coordinates as reference.
   tf2::Quaternion orientation2;
-  orientation2.setRPY(0.0 , M_PI/4 , M_PI/2);
+  orientation2.setRPY(0.0 , 0.2*M_PI , M_PI/2);
   approach2_pose.orientation.x = orientation2.x();
   approach2_pose.orientation.y = orientation2.y();
   approach2_pose.orientation.z = orientation2.z();
@@ -887,6 +887,7 @@ for (int ip = 0; ip < num_left; ip++)
 // *****************************************************************************************
 //
 // *****************************************************************************************
+
 for (int ip = 0; ip < (num - num_left); ip++)
   { 
 
@@ -941,7 +942,7 @@ for (int ip = 0; ip < (num - num_left); ip++)
   {
       objectx = object1; meshx_pose = mesh1_pose;
       dxx= 0.79; dyy= 0.66; dzz=-0.03;   
-      axx= 0.03; ayy=-0.092; azz=-0.028;
+      axx= 0.03; ayy=-0.09; azz=-0.06;
       thx=0.0; thy=M_PI/4; thz=M_PI/2;    
       graspx_right_gripper= "grasp_right_gripper";
   }
@@ -949,7 +950,7 @@ for (int ip = 0; ip < (num - num_left); ip++)
   {
       objectx = object5; meshx_pose = mesh5_pose;
       dxx= 0.79; dyy= 0.66; dzz=-0.03; 
-      axx= 0.045; ayy=-0.1; azz=-0.01;
+      axx= 0.04; ayy=-0.09; azz=-0.04;
       thx=0.0; thy=M_PI/4; thz=M_PI/2;     
       graspx_right_gripper= "grasp2_right_gripper";
   }
@@ -976,7 +977,7 @@ for (int ip = 0; ip < (num - num_left); ip++)
   // Set up target pose for right arm.
   geometry_msgs::Pose approach_pose = meshx_pose;    // Use target object pose (x,y,z) coordinates as reference.
   tf2::Quaternion orientation;
-  orientation.setRPY(-M_PI/2 , M_PI/4 , M_PI/2);
+  orientation.setRPY(-M_PI/2 , 0.2*M_PI , M_PI/2);
   approach_pose.orientation.x = orientation.x();
   approach_pose.orientation.y = orientation.y();
   approach_pose.orientation.z = orientation.z();

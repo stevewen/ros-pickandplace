@@ -62,7 +62,7 @@
   <!-- Fix robot to camera -->
   <link name="camera_link"/>
    <joint name="camera_link_fix" type="fixed">
-     <origin xyz="0.0 1.09 0.57" rpy="0 ${-13*pi/18} ${pi/2}"/>
+     <origin xyz="0.05 0.9 0.55" rpy="0 ${-0.8*pi} ${pi/2}"/>
      <parent link="camera_link"/>
      <child link="base_link"/>
   </joint>
